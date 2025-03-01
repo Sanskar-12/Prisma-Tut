@@ -1,0 +1,5 @@
+1. First Install prisma as dev dependency and type npx prisma init
+2. It will create a prisma schema file for you and you can create schema inside It
+3. Then install @prisma/client for accessing the schema in your app
+4. Whenever you change the schema inside schema.prisma file then you need to do npx prisma generate to generate the types for @prisma/client
+5. npx prisma migrate will copy all the schema to the connected database of yours
