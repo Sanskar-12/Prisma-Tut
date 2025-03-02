@@ -7,9 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Data Types - String, Int, Float, Boolean, Decimal, DateTime, Json, Enum, Bytes
+
+// attributes --> inline - single @, block - multiple @@
+// inline applies to the field, block applies to the model
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  age   Int
+  id                  Int      @id @default(autoincrement())
+  email               String   @unique
+  name                String?
+  age                 Int
+  isActive            Boolean
+  createdAt           DateTime @default(now())
+  notificationMethods Json? // --> ? means optional 
+  blog                Bytes?
+  interests           String[]
+  role                UserRole // --> This is an Enum
+}
+
+// Enum is important when you want to restrict the values of a field to a predefined set of values
+enum UserRole {
+  admin
+  user
 }
